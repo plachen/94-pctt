@@ -2,18 +2,25 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'   //旧的写法 新写法如下
 import Home from '@/views/home'
+import Login from '@/views/login'
 Vue.use(VueRouter)
 // 路由表
 const routes = [
   {
     // 强制跳转redirect
     path: '/',
-    redirect: 'name'
+    redirect: 'home'
   },
+
   {
     path: '/home',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   }
   // {
   //   // 按需加载
