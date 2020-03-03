@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'   //旧的写法 新写法如下
 import Home from '@/views/home'
 import Login from '@/views/login'
+import SecondHome from '@/views/home/second_home'
 Vue.use(VueRouter)
 // 路由表
 const routes = [
@@ -15,7 +16,13 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: '', // 二级路由的路径什么都不写 代表二级路由的默认组件
+        component: SecondHome
+      }
+    ]
   },
   {
     path: '/login',
