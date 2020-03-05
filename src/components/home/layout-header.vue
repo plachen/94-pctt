@@ -49,14 +49,11 @@ export default {
     }
   },
   created () {
-    const token = localStorage.getItem('user-token') // 从兜里拿出来token
     // 获取用户个人信息
     // 应该定义一个对象接收数据
     this.$axios({
-      url: '/user/profile', // 请求地址
-      headers: {
-        Authorization: `Bearer ${token}`
-      } // 请求头参数 放置请求头参数
+      url: '/user/profile' // 请求地址
+
     }).then(result => {
       // 如果加载成功了 我们把数据赋值给userInfo
       this.userInfo = result.data.data
