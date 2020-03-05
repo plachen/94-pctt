@@ -56,7 +56,7 @@ export default {
 
     }).then(result => {
       // 如果加载成功了 我们把数据赋值给userInfo
-      this.userInfo = result.data.data
+      this.userInfo = result.data
     }) // .then这是看获取的结果的
   }
 }
