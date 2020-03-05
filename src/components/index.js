@@ -2,7 +2,7 @@
 //  install:方法第一个参数是Vue对象
 import LayoutHeader from './home/layout-header'
 import LayoutAside from './home/layout-aside'
-import BreadCrumb from 'common/bread-crumb'
+import BreadCrumb from './common/bread-crumb'
 export default {
   install: function (Vue) {
     // 注册全局组件 一旦注册
