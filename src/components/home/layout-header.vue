@@ -42,7 +42,7 @@ export default {
         window.location.href = 'https://www.boxuegu.com/user/login/?refer=https://online.itheima.com/'
       } else {
         // 退出系统 删除token 跳转回登录页面
-        localStorage.removeItem() // 删除缓存
+        localStorage.removeItem('user-token') // 删除缓存
         // 编程式导航
         this.$router.push('/login')
       }
