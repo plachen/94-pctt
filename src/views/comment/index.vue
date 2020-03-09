@@ -42,12 +42,12 @@ export default {
     }
   },
   methods: {
-    //   获取评论数据
+    // 获取评论数据
     getComment () {
       this.$axios({
         url: '/articles', // 请求地址
         params: {
-          response_type: 'comment' // 此参数用来控制获取数据类型
+          response_type: 'comment'// 此参数用来获取数据类型
         }
         // query参数应该在哪个位置传 axios
         // params 传get参数也就是query参数
@@ -60,7 +60,7 @@ export default {
     //  定义一个格式化的函数
     formatterBool (row, column, cellValue, index) {
       //  row 代表当前的一行数据
-      // column 代表当前的列信息
+      // column 代表当前的列
       // cellValue 代表当前单元格的值
       // index 代表当前的索引
       // 该函数需要返回一个值 用来显示
@@ -77,7 +77,7 @@ export default {
           method: 'put', // 请求类型
           // query参数
           params: {
-            article_id: row.id // 要求参数的文章id
+            article_id: row.id.toString() // 要求参数的文章id 将Bignumber类型转成转换成字符串
           },
           data: {
             //  body参数
