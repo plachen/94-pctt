@@ -14,6 +14,10 @@
               <el-card class="img-card" v-for="item in list" :key="item.id">
                   <!-- 放置图片 并且赋值图片地址 -->
                   <img :src="item.url" alt="">
+                  <el-row class="operate" type="flex" align="middle" justify="space-around">
+                    <i class="el-icon-star-on"></i>
+                    <i class="el-icon-delete-solid"></i>
+                  </el-row>
               </el-card>
           </div>
       </el-tab-pane>
@@ -61,9 +65,21 @@ justify-content: center;
     width: 220px;
     height: 240px;
     margin: 20px 40px;
+    position: relative;
     img {
         width: 100%;
         height: 100%;
+    }
+    .operate {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #f4f5f6;
+      height: 30px;
+      i {
+        font-size: 20px;
+      }
     }
 }
 }
