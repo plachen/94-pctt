@@ -7,7 +7,16 @@
     </bread-crumb>
     <!-- 放置标签页 -->
     <el-tabs v-model="activeName">
-      <el-tab-pane label="全部素材" name="all">全部</el-tab-pane>
+      <el-tab-pane label="全部素材" name="all">
+          <!-- 循环生成页面结构 -->
+          <div class="img-list">
+              <!-- 采用v-for对list数据进行循环 -->
+              <el-card class="img-card" v-for="item in list" :key="item.id">
+                  <!-- 放置图片 并且赋值图片地址 -->
+                  <img :src="item.url" alt="">
+              </el-card>
+          </div>
+      </el-tab-pane>
       <el-tab-pane label="收藏素材" name="collect">收藏</el-tab-pane>
     </el-tabs>
   </el-card>
@@ -24,7 +33,7 @@ export default {
   methods: {
     getMaterial () {
       this.$axios({
-        url: 'user/images', // 请求地址
+        url: '/user/images', // 请求地址
         params: {
           collect: false // false 就是获取全部素材  不是收藏的数据 然后在then中等待请求的结果
         }, // get参数 也就是query参数
@@ -33,14 +42,29 @@ export default {
         // 将返回的数据 赋值到data 中
         this.list = result.data.results
       }) // 写完这个函数请求 要在钩子函数中调用一下
-    },
-    created () {
-    // 实例化之后调用 获取素材的数据
-      this.getMaterial()
     }
+
+  },
+  created () {
+    // 实例化之后调用 获取素材的数据
+    this.getMaterial()
   }
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+.img-list {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+.img-card {
+    width: 220px;
+    height: 240px;
+    margin: 20px 40px;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+}
 </style>
